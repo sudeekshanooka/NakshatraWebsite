@@ -1,5 +1,22 @@
 # React + TypeScript + Vite
 
+## Sponsorship inquiry backend
+
+The sponsorship form sends inquiries to `2k16srs@gmail.com` through the Vercel function at `/api/sponsorship`. The static site can remain on GitHub Pages; configure its build with `VITE_SPONSORSHIP_API_URL` set to the full Vercel function URL, for example `https://your-project.vercel.app/api/sponsorship`.
+
+This repository's GitHub Pages URL is `https://sais315.github.io/NakshatraWebsite/`. In the repository's **Settings → Pages**, set the source to the `gh-pages` branch and `/ (root)`.
+
+Deploy this repository to Vercel to host the API, then configure these Vercel environment variables:
+
+- `ALLOWED_ORIGIN`: the exact origin serving the site (scheme and hostname only, with no path; for GitHub Pages, use the origin shown in the browser address bar).
+- `RESEND_API_KEY`: a Resend API key.
+- `RESEND_FROM_EMAIL`: a sender address on a domain verified with Resend, such as `Nakshatra Sponsorship <sponsorship@your-verified-domain.com>`.
+- `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`: credentials for an Upstash Redis database.
+
+The API validates and bounds every field, accepts only the configured site origin, uses a hidden honeypot, and applies a distributed limit of five submissions per IP per hour. Inquiry content is sent as plain text, with a fixed recipient and subject; no SQL database is used. Keep all provider credentials in Vercel environment variables, never in `VITE_` variables or client code. Configure Vercel Firewall rate limits for additional protection at the edge; application rate limiting does not by itself prevent volumetric DDoS attacks.
+
+When building the GitHub Pages site, set `VITE_SPONSORSHIP_API_URL` in the build environment before running `npm run build` (or `npm run deploy`). Restart the build after changing it.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

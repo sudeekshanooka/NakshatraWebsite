@@ -18,7 +18,7 @@ export default function RSVPForm({ eventName }: RSVPFormProps) {
     return (
       <div className="confirmation-box">
         <div style={{ fontSize: '1.8rem', marginBottom: '0.5rem', color: 'var(--gold)' }}><span aria-hidden="true">✦</span></div>
-        <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: 'var(--gold)', fontWeight: 600, marginBottom: '0.4rem' }}>
+        <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: 'var(--gold)', fontWeight: 500, marginBottom: '0.4rem' }}>
           You're registered!
         </p>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', margin: 0 }}>

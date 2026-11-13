@@ -2,32 +2,34 @@ import { useEffect, useRef, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import sudeeksha_nooka from '../assets/sudeeksha_nooka.jpg';
-import rohan_vuppalapati from '../assets/rohan_vuppalapati.jpg';
-import rhianna_nakrani from '../assets/rhianna_nakrani.jpg';
-import diya_gopinath from '../assets/diya_gopinath.jpg';
-import mardav_shah from '../assets/mardav_shah.jpg';
-import raja_chinnakotla from '../assets/raja_chinnakotla.jpg';
-import isha_darshan_lokande from '../assets/isha_darshan_lokande.jpg';
-import sanjay_murali from '../assets/sanjay_murali.jpg';
-import srikar_kalapala from '../assets/srikar_kalapala.jpg';
-import ayush_harish from '../assets/ayush_harish.jpg';
-import kaitlyn_narman from '../assets/kaitlyn_narman.jpg';
-import akshita_tirumalaraju from '../assets/akshita_tirumalaraju.jpg';
-import sobhan_pandey from '../assets/sobhan_pandey.jpg';
-import nandini_shah from '../assets/nandini_shah.jpg';
-import vinay_ramanathan from '../assets/vinay_ramanathan.jpg';
-import aniruddh_mayya from '../assets/aniruddh_mayya.jpg';
-import prishaa_rajesh from '../assets/prishaa_rajesh.jpg';
-import iman_hafeez from '../assets/iman_hafeez.jpg';
-import shruthi_sridhar from '../assets/shruthi_sridhar.jpg';
-import rithika_rajesh from '../assets/rithika_rajesh.jpg';
-import diya_satanur from '../assets/diya_satanur.jpg';
-import riya_mathews from '../assets/riya_mathews.jpg';
-import aanchal_capoor from '../assets/aanchal_capoor.jpg';
-import megha_brahmbhatt from '../assets/megha_brahmbhatt.jpg';
-import keshav_shah from '../assets/keshav_shah.jpg';
-import krishna_maganti from '../assets/krishna_maganti.jpg';
+import adithyaPhoto from '../assets/ExecBoardPhotos/Adithya.jpg';
+import ananyaShankarPhoto from '../assets/ExecBoardPhotos/AnanyaS.jpg';
+import ananyaYanduruPhoto from '../assets/ExecBoardPhotos/AnanyaY.jpg';
+import ayushPhoto from '../assets/ExecBoardPhotos/Ayush.jpg';
+import ashwathPhoto from '../assets/ExecBoardPhotos/Ashwath.jpg';
+import aathmikhaPhoto from '../assets/ExecBoardPhotos/Aathmikha.jpg';
+import chetanaPhoto from '../assets/ExecBoardPhotos/Chetana.jpg';
+import diyaPhoto from '../assets/ExecBoardPhotos/Diya.jpg';
+import jairamPhoto from '../assets/ExecBoardPhotos/Jairam.jpg';
+import hiyaPhoto from '../assets/ExecBoardPhotos/Hiya.jpg';
+import joshithaPhoto from '../assets/ExecBoardPhotos/Joshitha.jpg';
+import krishnaPhoto from '../assets/ExecBoardPhotos/Krishna.jpg';
+import nandiniPhoto from '../assets/ExecBoardPhotos/Nandini.jpg';
+import patriciaPhoto from '../assets/ExecBoardPhotos/Patricia.jpg';
+import pransiPhoto from '../assets/ExecBoardPhotos/Pransi.jpg';
+import riyaPhoto from '../assets/ExecBoardPhotos/Riya.jpg';
+import rohitPhoto from '../assets/ExecBoardPhotos/Rohit.jpg';
+import roystonPhoto from '../assets/ExecBoardPhotos/Royston.jpg';
+import saiPhoto from '../assets/ExecBoardPhotos/Sai.jpg';
+import sanjayPhoto from '../assets/ExecBoardPhotos/Sanjay.jpg';
+import sanjnaPhoto from '../assets/ExecBoardPhotos/Sanjna.jpg';
+import shaktiPhoto from '../assets/ExecBoardPhotos/Shakti.jpg';
+import snehaPhoto from '../assets/ExecBoardPhotos/Sneha.jpg';
+import srikarPhoto from '../assets/ExecBoardPhotos/Srikar.jpg';
+import sripadaPhoto from '../assets/ExecBoardPhotos/Sripada.jpg';
+import siratPhoto from '../assets/ExecBoardPhotos/Sirat.jpg';
+import srutiPhoto from '../assets/ExecBoardPhotos/Sruti.jpg';
+import fullBoardPhoto from '../assets/FullBoard.jpg';
 
 // ── Scroll-reveal hook ────────────────────────────────────────
 function useReveal() {
@@ -83,127 +85,121 @@ function getInitials(name: string): string {
 const departments: {
   dept: string;
   email: string;
-  members: { name: string; photo: string; objectPosition?: string; transform?: string; }[];
+  members: { name: string; photo?: string; objectPosition?: string }[];
 }[] = [
   {
     dept: 'Directors',
     email: 'nakshatrauw@gmail.com',
     members: [
-      { name: 'Sudeeksha Nooka', photo: sudeeksha_nooka },
-      { name: 'Rohan Vuppalapati', photo: rohan_vuppalapati },
-      { name: 'Rhianna Nakrani', photo: rhianna_nakrani },
+      { name: 'Krishna Maganti', photo: krishnaPhoto },
+      { name: 'Riya Mathews', photo: riyaPhoto },
+      { name: 'Srikar Kalapala', photo: srikarPhoto, objectPosition: 'center top' },
     ],
   },
   {
     dept: 'Events',
     email: 'nakshatrauw.relations@gmail.com',
     members: [
-      { name: 'Diya Gopinath', photo: diya_gopinath },
-      { name: 'Mardav Shah', photo: mardav_shah },
+      { name: 'Ananya Shankar', photo: ananyaShankarPhoto },
+      { name: 'Ananya Yanduru', photo: ananyaYanduruPhoto },
     ],
   },
   {
     dept: 'Finance',
     email: 'nakshatrauw.finance@gmail.com',
     members: [
-      { name: 'Raja Chinnakotla', photo: raja_chinnakotla },
+      { name: 'Hiya Tanna', photo: hiyaPhoto },
     ],
   },
   {
     dept: 'Fundraising',
     email: 'nakshatrauw.finance@gmail.com',
     members: [
-      { name: 'Isha Darshan Lokande', photo: isha_darshan_lokande, objectPosition: 'center 60%' },
-      { name: 'Sanjay Murali', photo: sanjay_murali },
-      { name: 'Srikar Kalapala', photo: srikar_kalapala },
+      { name: 'Sneha Manchandani', photo: snehaPhoto },
+      { name: 'Sripada Thammera', photo: sripadaPhoto },
+      { name: 'Ashwath Vijayaraghavan', photo: ashwathPhoto },
     ],
   },
   {
     dept: 'Head Liaisons',
     email: 'nakshatrauw.relations@gmail.com',
     members: [
-      { name: 'Ayush Harish', photo: ayush_harish },
-      { name: 'Kaitlyn Narman', photo: kaitlyn_narman },
+      { name: 'Sanjna Akula', photo: sanjnaPhoto },
+      { name: 'Patricia Prakasam', photo: patriciaPhoto },
     ],
   },
   {
     dept: 'Hospitality',
     email: 'nakshatrauw.finance@gmail.com',
     members: [
-      { name: 'Akshita Tirumalaraju', photo: akshita_tirumalaraju },
-      { name: 'Sobhan Pandey', photo: sobhan_pandey },
+      { name: 'Royston Marques', photo: roystonPhoto },
+      { name: 'Chetana Vysangi', photo: chetanaPhoto },
     ],
   },
   {
     dept: 'Judging',
     email: 'nakshatrauw.relations@gmail.com',
     members: [
-      { name: 'Nandini Shah', photo: nandini_shah },
-      { name: 'Vinay Ramanathan', photo: vinay_ramanathan },
+      { name: 'Rohit Raghunathan', photo: rohitPhoto },
+      { name: 'Aditya Sunderesan', photo: adithyaPhoto },
     ],
   },
   {
     dept: 'Logistics',
     email: 'nakshatrauw.finance@gmail.com',
     members: [
-      { name: 'Aniruddh Mayya', photo: aniruddh_mayya },
-      { name: 'Prishaa Rajesh', photo: prishaa_rajesh },
+      { name: 'Sirat Mokha', photo: siratPhoto },
+      { name: 'Sruti Palla', photo: srutiPhoto },
     ],
   },
   {
     dept: 'Marketing',
     email: 'nakshatrauw.relations@gmail.com',
     members: [
-      { name: 'Iman Hafeez', photo: iman_hafeez },
-      { name: 'Shruthi Sridhar', photo: shruthi_sridhar, objectPosition: 'center 40%' },
+      { name: 'Shakti Iyer', photo: shaktiPhoto },
+      { name: 'Jairam Narayanan', photo: jairamPhoto },
+      { name: 'Pransi Patel', photo: pransiPhoto },
     ],
   },
   {
     dept: 'Philanthropy',
     email: 'nakshatrauw.relations@gmail.com',
     members: [
-      { name: 'Rithika Rajesh', photo: rithika_rajesh },
+      { name: 'Nandini Nambiar', photo: nandiniPhoto },
     ],
   },
   {
     dept: 'Registration',
     email: 'nakshatrauw.relations@gmail.com',
     members: [
-      { name: 'Diya Satanur', photo: diya_satanur },
-      { name: 'Riya Mathews', photo: riya_mathews },
+      { name: 'Diya Raghunath', photo: diyaPhoto },
+      { name: 'Joshitha Senthil', photo: joshithaPhoto },
     ],
   },
   {
     dept: 'Risk & Affiliation',
     email: 'nakshatrauw.relations@gmail.com',
     members: [
-      { name: 'Aanchal Capoor', photo: aanchal_capoor },
-      { name: 'Megha Brahmbhatt', photo: megha_brahmbhatt },
+      { name: 'Ayush Harish', photo: ayushPhoto },
+      { name: 'Aathmikha Somi Ashok Kumar', photo: aathmikhaPhoto },
     ],
   },
   {
     dept: 'Tech',
     email: 'nakshatrauw.finance@gmail.com',
     members: [
-      { name: 'Keshav Shah', photo: keshav_shah, objectPosition: 'center 40%' },
-      { name: 'Krishna Maganti', photo: krishna_maganti },
+      { name: 'Sanjay Murali', photo: sanjayPhoto },
+      { name: 'Saikrishna Sunkara', photo: saiPhoto },
     ],
   },
-];
-
-const stats = [
-  { value: '8',  label: 'Competing Teams' },
-  { value: '1',  label: 'Stage' },
-  { value: '6+', label: 'Dance Forms' },
-  { value: 'UW', label: 'Madison' },
 ];
 
 function Divider() {
   return (
     <div style={{ display: 'flex', alignItems: 'center', margin: '3.5rem 0' }}>
-      <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, var(--gold-muted))' }} />
+      <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--gold-muted)' }} />
       <div style={{ width: '7px', height: '7px', background: 'var(--gold)', transform: 'rotate(45deg)', margin: '0 16px', boxShadow: '0 0 8px var(--gold-glow)' }} />
-      <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, var(--gold-muted))' }} />
+      <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--gold-muted)' }} />
     </div>
   );
 }
@@ -217,54 +213,45 @@ export default function About() {
         {/* Heading */}
         <Row className="text-center mb-2">
           <Col>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--purple-light)', marginBottom: '0.75rem' }}>
-              Who We Are
-            </p>
             <h1 style={{ fontFamily: 'var(--font-heading)', color: 'var(--gold)', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 700, letterSpacing: '0.08em', marginBottom: '1.5rem' }}>
-              About Us
+              What is Nakshatra?
             </h1>
           </Col>
         </Row>
 
         {/* Narrative */}
-        <Row className="justify-content-center mb-4">
-          <Col lg={8}>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.9, marginBottom: '1.25rem' }}>
-              Nakshatra is the premier Indian classical dance competition at the University of
-              Wisconsin-Madison, showcasing the rich traditions of Indian dance. This annual event
-              invites eight highly skilled Indian classical dance teams from across the nation.
-            </p>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.9, marginBottom: '1.25rem' }}>
-              The competition is organized by a dedicated executive board, supported by liaisons
-              and event managers, who work tirelessly to deliver a spectacular cultural showcase.
-              Nakshatra not only celebrates the art of Indian classical dance but also enriches the
-              Madison community by offering a glimpse into various classical Indian dance forms.
-            </p>
+        <Row className="align-items-center mb-4">
+          <Col lg={7}>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.9, margin: 0 }}>
-              Affiliated with the Multicultural Student Center at the University of Wisconsin–Madison,
-              Nakshatra is open to all students and welcomes anyone passionate about Indian culture,
-              the performing arts, and community-building.
+              Placeholder text for now.
             </p>
           </Col>
-        </Row>
-
-        {/* Stats */}
-        <Row className="justify-content-center mb-2">
-          <Col lg={8}>
-            <div className="glass-card" style={{ padding: '2rem 1rem', marginTop: '1rem' }}>
-              <Row className="g-3 text-center">
-                {stats.map(s => (
-                  <Col key={s.label} xs={6} md={3}>
-                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 700, color: 'var(--gold)', lineHeight: 1, textShadow: '0 0 20px var(--gold-glow)' }}>
-                      {s.value}
-                    </div>
-                    <div style={{ fontFamily: 'var(--font-body)', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-secondary)', marginTop: '0.4rem' }}>
-                      {s.label}
-                    </div>
-                  </Col>
-                ))}
-              </Row>
-            </div>
+          <Col lg={5} className="text-center mt-4 mt-lg-0">
+            <img
+              src={fullBoardPhoto}
+              alt="Nakshatra full board"
+              style={{
+                width: '100%',
+                maxWidth: '520px',
+                borderRadius: '12px',
+                border: '1px solid var(--border-gold)',
+                boxShadow: '0 12px 30px rgba(0, 0, 0, 0.2)',
+                display: 'block',
+                margin: '0 auto',
+              }}
+            />
+            <p style={{
+              marginTop: '1rem',
+              marginBottom: 0,
+              color: 'var(--gold)',
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(0.9rem, 1.6vw, 1.2rem)',
+              fontWeight: 700,
+              letterSpacing: '0.06em',
+              whiteSpace: 'nowrap',
+            }}>
+              Nakshatra 3.0 Executive Board
+            </p>
           </Col>
         </Row>
 
@@ -303,37 +290,40 @@ export default function About() {
             </Reveal>
 
             {/* Cards stagger in after the title */}
-            <Row className="g-2">
+            <Row className="g-2 justify-content-center">
               {dept.members.map((m, mi) => (
                 <Col key={mi} xs={12} sm={6} md={4} lg={3}>
                   <Reveal delay={0.1 + mi * 0.08}>
                     <div style={{ overflow: 'hidden', borderRadius: '6px', background: 'rgba(255,255,255,0.04)', border: '1px solid var(--border-purple)' }}>
-                      <img
-                        src={m.photo}
-                        alt={m.name}
-                        loading="lazy"
-                        style={{
-                          width: '100%',
-                          height: '280px',
-                          objectFit: 'cover',
-                          objectPosition: m.objectPosition || 'center 60%',
-                          transform: m.transform,
-                          display: 'block'
-                        }}
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          const fallback = target.nextElementSibling as HTMLDivElement;
-                          if (fallback) fallback.style.display = 'flex';
-                        }}
-                      />
+                      {m.photo && (
+                        <img
+                          src={m.photo}
+                          alt={m.name}
+                          loading="lazy"
+                          style={{
+                            width: '100%',
+                            height: '280px',
+                            objectFit: 'cover',
+                            objectPosition: m.objectPosition ?? 'center 60%',
+                            display: 'block',
+                          }}
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            const fallback = target.nextElementSibling as HTMLDivElement;
+                            if (fallback) fallback.style.display = 'flex';
+                          }}
+                        />
+                      )}
                       <div
+                        role="img"
+                        aria-label={m.name}
                         style={{
                           width: '100%',
                           height: '280px',
                           background: 'rgba(107, 33, 168, 0.2)',
                           color: 'var(--gold)',
-                          display: 'none',
+                          display: m.photo ? 'none' : 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
                           fontSize: '1.5rem',
@@ -367,7 +357,7 @@ export default function About() {
                 <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-secondary)', marginBottom: '0.75rem' }}>
                   Affiliation
                 </p>
-                <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--text-primary)', fontWeight: 600, marginBottom: '0.5rem' }}>
+                <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--text-primary)', fontWeight: 500, marginBottom: '0.5rem' }}>
                   Multicultural Student Center (MSC)
                 </p>
                 <p style={{ fontFamily: 'var(--font-body)', color: 'var(--text-secondary)', fontSize: '0.9rem', margin: 0 }}>
@@ -382,7 +372,7 @@ export default function About() {
                 <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-secondary)', marginBottom: '0.75rem' }}>
                   Affiliation
                 </p>
-                <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--text-primary)', fontWeight: 600, marginBottom: '0.5rem' }}>
+                <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--text-primary)', fontWeight: 500, marginBottom: '0.5rem' }}>
                   International Student Services (ISS)
                 </p>
                 <p style={{ fontFamily: 'var(--font-body)', color: 'var(--text-secondary)', fontSize: '0.9rem', margin: 0 }}>
@@ -397,7 +387,7 @@ export default function About() {
                 <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--text-secondary)', marginBottom: '0.75rem' }}>
                   Accreditation
                 </p>
-                <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--text-primary)', fontWeight: 600, marginBottom: '0.5rem' }}>
+                <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', color: 'var(--text-primary)', fontWeight: 500, marginBottom: '0.5rem' }}>
                   SOLI Accredited RSO
                 </p>
                 <p style={{ fontFamily: 'var(--font-body)', color: 'var(--text-secondary)', fontSize: '0.9rem', margin: 0 }}>

@@ -6,8 +6,6 @@
   --purple:        #6b21a8;
   --purple-light:  #a78bfa;
   --purple-glow:   rgba(107, 33, 168, 0.35);
-  --blue:          #3b82f6;
-  --blue-glow:     rgba(59, 130, 246, 0.3);
   --gold:          #c9a84c;
   --gold-bright:   #e2c06a;
   --gold-muted:    #8a6e28;
@@ -18,8 +16,10 @@
   --border-purple: rgba(107, 33, 168, 0.45);
 
   /* Fonts */
-  --font-heading:  'Cormorant Garant', Georgia, serif;
-  --font-body:     'Inter', system-ui, sans-serif;
+  --font-heading:  Georgia, 'Times New Roman', serif;
+  --font-body:     Georgia, 'Times New Roman', serif;
+  --font-wordmark: Georgia, 'Times New Roman', serif;
+  --bs-body-font-family: var(--font-body);
 
   font: 15px/1.7 var(--font-body);
   color: var(--text-primary);
@@ -30,6 +30,7 @@
 
 body {
   margin: 0;
+  font-family: var(--font-body);
   background-color: var(--navy);
   color: var(--text-primary);
   min-height: 100vh;
@@ -46,7 +47,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--gold);
-  font-weight: 600;
+  font-weight: 500 !important;
   letter-spacing: 0.04em;
 }
 
@@ -75,28 +76,6 @@ a:hover { color: var(--text-primary); }
   border: 1px solid var(--border-gold);
   box-shadow: 0 0 20px rgba(201, 168, 76, 0.1);
   border-radius: 8px;
-}
-
-.btn-gradient {
-  background: linear-gradient(135deg, var(--purple) 0%, var(--blue) 100%);
-  border: none;
-  color: #fff;
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.65rem 2rem;
-  border-radius: 4px;
-  transition: box-shadow 0.25s, transform 0.15s;
-  cursor: pointer;
-}
-
-.btn-gradient:hover, .btn-gradient:focus {
-  box-shadow: 0 0 22px var(--purple-glow), 0 0 10px var(--blue-glow);
-  transform: translateY(-1px);
-  color: #fff;
-  background: linear-gradient(135deg, var(--purple) 0%, var(--blue) 100%);
 }
 
 .btn-ghost {
@@ -152,6 +131,15 @@ a:hover { color: var(--text-primary); }
   min-width: 70px;
 }
 
+.countdown-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  margin: 0 0 1.5rem;
+}
+
 .countdown-number {
   font-family: var(--font-heading);
   font-size: clamp(3rem, 7vw, 5.5rem);
@@ -159,6 +147,14 @@ a:hover { color: var(--text-primary); }
   color: var(--gold);
   line-height: 1;
   text-shadow: 0 0 30px var(--gold-glow);
+}
+
+.countdown-date {
+  font-family: var(--font-body);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin: 1.5rem 0 0;
 }
 
 .countdown-label {
@@ -182,13 +178,13 @@ a:hover { color: var(--text-primary); }
 .divider-line-left {
   flex: 1;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold-muted));
+  background-color: var(--gold-muted);
 }
 
 .divider-line-right {
   flex: 1;
   height: 1px;
-  background: linear-gradient(to left, transparent, var(--gold-muted));
+  background-color: var(--gold-muted);
 }
 
 .divider-diamond {

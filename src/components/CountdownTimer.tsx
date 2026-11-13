@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 
-// Placeholder date — update this when the competition date is confirmed
-const COMPETITION_DATE = new Date('2026-04-19T18:00:00');
+const COMPETITION_DATE = new Date('2027-02-27T00:00:00');
 
 interface TimeLeft {
   days: number;
@@ -34,17 +33,9 @@ export default function CountdownTimer() {
   const values = [timeLeft.days, timeLeft.hours, timeLeft.minutes, timeLeft.seconds];
 
   return (
-    <div className="glass-card" style={{ padding: 'clamp(1.5rem, 4vw, 3rem) clamp(1rem, 4vw, 3rem)', textAlign: 'center' }}>
-      <p style={{
-        fontFamily: 'var(--font-body)',
-        fontSize: '0.7rem',
-        fontWeight: 600,
-        letterSpacing: '0.3em',
-        textTransform: 'uppercase',
-        color: 'var(--text-secondary)',
-        marginBottom: '1.5rem',
-      }}>
-        Competition Countdown
+    <div style={{ padding: 'clamp(1.5rem, 4vw, 3rem) clamp(1rem, 4vw, 3rem)', textAlign: 'center' }}>
+      <p className="countdown-title">
+        Countdown To A Whole New World
       </p>
 
       <div className="countdown-wrap">
@@ -56,15 +47,8 @@ export default function CountdownTimer() {
         ))}
       </div>
 
-      <p style={{
-        fontFamily: 'var(--font-body)',
-        fontSize: '0.72rem',
-        color: 'var(--text-secondary)',
-        marginTop: '1.5rem',
-        marginBottom: 0,
-        opacity: 0.7,
-      }}>
-        Date TBD — placeholder shown
+      <p className="countdown-date">
+        February 27, 2027
       </p>
     </div>
   );

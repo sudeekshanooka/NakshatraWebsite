@@ -8,8 +8,9 @@ export default function Footer() {
 <Container>
         <Row className="align-items-start g-4">
           <Col md={4}>
-            <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: 700, color: 'var(--gold)', letterSpacing: '0.18em', marginBottom: '0.5rem' }}>
-              <span aria-hidden="true">✦</span> NAKSHATRA
+            <div className="footer-brand" style={{ fontSize: '1.3rem', color: 'var(--gold)', marginBottom: '0.5rem' }}>
+              <span className="brand-wordmark" aria-hidden="true">NAKSHATRA</span>
+              <span className="visually-hidden">Nakshatra</span>
             </div>
             <p style={{ margin: 0, lineHeight: 1.6, color: 'var(--text-secondary)' }}>
               The premier Indian classical dance competition at the University of Wisconsin–Madison.
@@ -17,7 +18,7 @@ export default function Footer() {
           </Col>
 
           <Col md={4} className="text-center text-md-center">
-            <p style={{ fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.4rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontSize: '0.72rem' }}>
+            <p style={{ fontWeight: 500, color: 'var(--text-secondary)', marginBottom: '0.4rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontSize: '0.72rem' }}>
               Affiliations & Accreditations
             </p>
             <div style={{ height: '1px', background: 'var(--border-gold)', marginBottom: '0.6rem', margin: '0 auto 0.6rem' }} />
@@ -30,7 +31,7 @@ export default function Footer() {
           </Col>
 
           <Col md={4} className="text-md-end">
-            <p style={{ fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.25rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontSize: '0.72rem' }}>
+            <p style={{ fontWeight: 500, color: 'var(--text-secondary)', marginBottom: '0.25rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontSize: '0.72rem' }}>
               Contact
             </p>
             <a href="mailto:nakshatrauw@gmail.com" style={{ color: 'var(--gold)', textDecoration: 'none', fontWeight: 500, display: 'block', marginBottom: '0.4rem' }}>
