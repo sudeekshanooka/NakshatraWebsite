@@ -6,6 +6,8 @@ The sponsorship form sends inquiries to `2k16srs@gmail.com` through the Vercel f
 
 This repository's GitHub Pages URL is `https://sais315.github.io/NakshatraWebsite/`. In the repository's **Settings → Pages**, set the source to the `gh-pages` branch and `/ (root)`.
 
+The Vite build uses `/NakshatraWebsite/` for GitHub Pages and `/` on Vercel, where the site is served from the domain root.
+
 Deploy this repository to Vercel to host the API, then configure these Vercel environment variables:
 
 - `ALLOWED_ORIGIN`: the exact origin serving the site (scheme and hostname only, with no path; for GitHub Pages, use the origin shown in the browser address bar).
