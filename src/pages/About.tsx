@@ -147,7 +147,7 @@ const departments: {
   },
   {
     dept: 'Logistics',
-    email: 'nakshatrauw.finance@gmail.com',
+    email: 'nakshatrauw.relations@gmail.com',
     members: [
       { name: 'Sirat Mokha', photo: siratPhoto },
       { name: 'Sruti Palla', photo: srutiPhoto },
@@ -187,7 +187,7 @@ const departments: {
   },
   {
     dept: 'Tech',
-    email: 'nakshatrauw.finance@gmail.com',
+    email: 'nakshatrauw.relations@gmail.com',
     members: [
       { name: 'Sanjay Murali', photo: sanjayPhoto },
       { name: 'Saikrishna Sunkara', photo: saiPhoto },
@@ -214,7 +214,7 @@ export default function About() {
         {/* Heading */}
         <Row className="text-center mb-2">
           <Col>
-            <h1 style={{ fontFamily: 'var(--font-heading)', color: 'var(--gold)', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 700, letterSpacing: '0.08em', marginBottom: '1.5rem' }}>
+            <h1 style={{ fontFamily: 'var(--font-heading)', color: '#fff', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 700, letterSpacing: '0.08em', marginBottom: '1.5rem' }}>
               What is Nakshatra?
             </h1>
           </Col>
@@ -250,8 +250,8 @@ export default function About() {
               alt="Nakshatra full board"
               style={{
                 width: '100%',
+                height: 'auto',
                 maxWidth: '520px',
-                borderRadius: '12px',
                 border: '1px solid var(--border-gold)',
                 boxShadow: '0 12px 30px rgba(0, 0, 0, 0.2)',
                 display: 'block',
@@ -261,7 +261,7 @@ export default function About() {
             <p style={{
               marginTop: '1rem',
               marginBottom: 0,
-              color: 'var(--gold)',
+              color: '#fff',
               fontFamily: 'var(--font-heading)',
               fontSize: 'clamp(0.9rem, 1.6vw, 1.2rem)',
               fontWeight: 700,
@@ -278,12 +278,12 @@ export default function About() {
         {/* Executive Board heading */}
         <Row className="mb-5">
           <Col>
-            <h2 style={{ fontFamily: 'var(--font-heading)', color: 'var(--gold)', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 700, letterSpacing: '0.06em', marginBottom: '0.4rem' }}>
+            <h2 style={{ fontFamily: 'var(--font-heading)', color: '#fff', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 700, letterSpacing: '0.06em', marginBottom: '0.4rem' }}>
               Executive Board
             </h2>
             <p style={{ fontFamily: 'var(--font-body)', color: 'var(--text-secondary)', fontSize: '0.92rem', margin: 0 }}>
-              Questions? Reach the full team at{' '}
-              <a href="mailto:nakshatrauw@gmail.com" style={{ color: 'var(--gold)', textDecoration: 'none' }}>
+              Need to reach out to a specific member of our board? Find their email below, or send a general inquiry to {' '}
+              <a href="mailto:nakshatrauw@gmail.com" style={{ color: '#fff', textDecoration: 'none' }}>
                 nakshatrauw@gmail.com
               </a>
             </p>
@@ -297,7 +297,7 @@ export default function About() {
             {/* Department title slides up first */}
             <Reveal delay={0}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                <h2 style={{ fontFamily: 'var(--font-heading)', color: 'var(--gold)', fontSize: '1.5rem', fontWeight: 600, letterSpacing: '0.06em', margin: 0 }}>
+                <h2 style={{ fontFamily: 'var(--font-heading)', color: '#fff', fontSize: '1.5rem', fontWeight: 600, letterSpacing: '0.06em', margin: 0 }}>
                   {dept.dept}
                 </h2>
                 <div style={{ flex: 1, height: '1px', background: 'var(--border-gold)' }} />
@@ -312,15 +312,14 @@ export default function About() {
               {dept.members.map((m, mi) => (
                 <Col key={mi} xs={12} sm={6} md={4} lg={3}>
                   <Reveal delay={0.1 + mi * 0.08}>
-                    <div style={{ overflow: 'hidden', borderRadius: '6px', background: 'rgba(255,255,255,0.04)', border: '1px solid var(--border-purple)' }}>
+                    <div className="about-member-card">
                       {m.photo && (
                         <img
+                          className="about-member-portrait"
                           src={m.photo}
                           alt={m.name}
                           loading="lazy"
                           style={{
-                            width: '100%',
-                            height: 'auto',
                             display: 'block',
                           }}
                           onError={(e) => {
@@ -332,13 +331,12 @@ export default function About() {
                         />
                       )}
                       <div
+                        className="about-member-portrait"
                         role="img"
                         aria-label={m.name}
                         style={{
-                          width: '100%',
-                          aspectRatio: '2 / 3',
                           background: 'rgba(107, 33, 168, 0.2)',
-                          color: 'var(--gold)',
+                          color: '#fff',
                           display: m.photo ? 'none' : 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',

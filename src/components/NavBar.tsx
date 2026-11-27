@@ -3,7 +3,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import { useEffect, useState } from 'react';
-import nakshatraLogo from '../assets/NakshatraLogo.webp';
 import '../App.css';
 
 export default function NavBar() {
@@ -17,11 +16,11 @@ export default function NavBar() {
 
   return (
     <Navbar fixed="top" className={`nakshatra-navbar${isScrolled ? ' nakshatra-navbar-scrolled' : ''}`}>
-      <Container className="navbar-container">
+      <Container fluid className="navbar-container">
         <Navbar.Brand as={NavLink} to="/" aria-label="Nakshatra home">
-          <img className="navbar-logo" src={nakshatraLogo} alt="" />
+          <span className="navbar-logo" aria-hidden="true" />
         </Navbar.Brand>
-        <Nav className="navbar-links ms-auto gap-1" aria-label="Main navigation">
+        <Nav className="navbar-links gap-sm-1" aria-label="Main navigation">
           <Nav.Link as={NavLink} to="/competition" className="nav-link-custom">Competition</Nav.Link>
           <Nav.Link as={NavLink} to="/teams" className="nav-link-custom">Teams</Nav.Link>
           <Nav.Link as={NavLink} to="/sponsors" className="nav-link-custom">Sponsors</Nav.Link>

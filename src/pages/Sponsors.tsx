@@ -19,6 +19,7 @@ const partnerLogos = [
 const submissionErrors: Partial<Record<number, string>> = {
   400: 'Some details need checking. Enter your name, a valid email address, how you’d like to help, and a message.',
   413: 'Your inquiry is too long. Shorten your message and try again.',
+  422: 'Enter a phone number with 7 to 15 digits, such as (608) 555-0123, or leave Phone blank.',
   429: 'Too many inquiries were sent in a short time. Please wait and try again later.',
 };
 const unavailableMessage = 'The sponsorship form is temporarily unavailable. Please try again later.';
@@ -49,7 +50,11 @@ export default function Sponsors() {
         }),
       });
       if (!response.ok) {
-        setStatus({ type: 'danger', message: submissionErrors[response.status] ?? unavailableMessage });
+        const error = response.status === 400 ? await response.json().catch(() => null) : null;
+        const message = error?.code === 'emoji_not_allowed'
+          ? 'Remove emojis from your inquiry and try again.'
+          : submissionErrors[response.status] ?? unavailableMessage;
+        setStatus({ type: 'danger', message });
         return;
       }
 
@@ -114,7 +119,7 @@ export default function Sponsors() {
                   </Col>
                   <Col md={6}>
                     <label className="form-label-dark" htmlFor="sponsor-phone">Phone <span className="sponsor-optional">(optional)</span></label>
-                    <input id="sponsor-phone" name="phone" type="tel" className="form-control form-control-dark" autoComplete="tel" maxLength={40} />
+                    <input id="sponsor-phone" name="phone" type="tel" className="form-control form-control-dark" autoComplete="tel" maxLength={40} placeholder="(608) 555-0123" />
                   </Col>
                   <Col xs={12}>
                     <label className="form-label-dark" htmlFor="sponsor-interest">How would you like to support Nakshatra?</label>
@@ -131,6 +136,7 @@ export default function Sponsors() {
                     <textarea id="sponsor-message" name="message" className="form-control form-control-dark" rows={4} maxLength={4000} placeholder="Share any questions or details about your sponsorship idea." required />
                   </Col>
                   <Col xs={12}>
+
                     <button className="btn-ghost sponsor-submit" type="submit" disabled={isSubmitting}>
                       {isSubmitting ? 'Sending…' : 'Submit'}
                     </button>

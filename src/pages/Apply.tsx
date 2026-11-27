@@ -11,7 +11,7 @@ const timeline = [
   { date: 'Mid-Late September', event: 'Liaison & Event Manager Interviews' },
   { date: 'Early October', event: 'Full Team Finalized' },
   { date: 'November – March', event: 'Active Planning & Coordination' },
-  { date: 'Spring 2027', event: 'Competition Weekend' },
+  { date: 'February 27th, 2027', event: 'Competition Day' },
 ];
 
 const roles = [
@@ -35,7 +35,7 @@ const roles = [
     description:
       "Serve as the primary point of contact for your assigned competing dance team throughout competition weekend. Help your team move smoothly through tech rehearsal, hotel room decorating, crafts day, and performances, while supporting their safety and experience from arrival to departure.",
     expectations: [
-      'Available for the full competition weekend (Spring 2027)',
+      'Available for the full competition weekend (February 26th–28th, 2027)',
       'Able to attend mandatory meetings and SAP/AOD training beforehand',
       'Complete one concession shift and obtain ServSafe certification',
     ],
@@ -47,7 +47,7 @@ const roles = [
     description:
       'Support the board and liaisons in bringing competition weekend to life. Event managers help set up the mixer, create props and decorations for crafts day, assist during performances and tech time, and fill in for liaison roles when needed.',
     expectations: [
-      'Available for the full competition weekend (Spring 2027)',
+      'Available for the full competition weekend (February 26th–28th, 2027)',
       'Able to attend mandatory meetings and SAP/AOD training beforehand',
       'Complete one concession shift and obtain ServSafe certification',
     ],
@@ -60,7 +60,7 @@ export default function Apply() {
       <Container>
         <Row className="text-center mb-4">
           <Col>
-            <h1 style={{ fontFamily: 'var(--font-heading)', color: 'var(--gold)', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 700, letterSpacing: '0.08em', marginBottom: 0 }}>
+            <h1 style={{ fontFamily: 'var(--font-heading)', color: '#fff', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 700, letterSpacing: '0.08em', marginBottom: 0 }}>
               Register your interest!
             </h1>
           </Col>
@@ -86,7 +86,7 @@ export default function Apply() {
                       aria-label={`${role.title} responsibilities and expectations. Open interest form in a new tab.`}
                       style={{ padding: '2rem' }}
                     >
-                      <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--gold)', fontSize: '1.4rem', fontWeight: 700, marginBottom: '0.6rem' }}>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', color: '#fff', fontSize: '1.4rem', fontWeight: 700, marginBottom: '0.6rem' }}>
                         {role.title}
                       </h3>
                       <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineHeight: 1.65, marginBottom: '1rem' }}>
@@ -98,7 +98,7 @@ export default function Apply() {
                       <ul style={{ paddingLeft: '1.1rem', color: 'var(--text-secondary)', fontSize: '0.82rem', margin: 0, lineHeight: 1.8 }}>
                         {role.expectations.map(expectation => <li key={expectation}>{expectation}</li>)}
                       </ul>
-                      <span className="role-card-cta">View interest form <span aria-hidden="true">↗</span></span>
+                      <span className="role-card-cta">View interest form</span>
                     </a>
                   </Col>
                 ))}
@@ -119,7 +119,7 @@ export default function Apply() {
           {timeline.map(item => (
             <li className="timeline-item" key={item.date}>
               <span className="timeline-dot" aria-hidden="true" />
-              <p style={{ color: 'var(--gold)', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', margin: '0 0 0.25rem', textTransform: 'uppercase' }}>
+              <p className="timeline-date">
                 {item.date}
               </p>
               <p style={{ color: 'var(--text-primary)', fontSize: '0.95rem', fontWeight: 500, margin: 0 }}>

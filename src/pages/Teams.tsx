@@ -35,13 +35,13 @@ export default function Teams() {
             <Col>
               <h2 id="teams-coming-soon-heading" style={{
                 fontFamily: 'var(--font-heading)',
-                color: 'var(--gold)',
+                color: '#fff',
                 fontSize: 'clamp(1.6rem, 4vw, 2.4rem)',
                 letterSpacing: '0.04em',
                 lineHeight: 1.3,
                 marginBottom: '0.75rem',
               }}>
-                Dancers taking us on a magic carpet ride: Flying in Soon!
+                The dancers taking us on a magic carpet ride will be flying in soon!
               </h2>
             </Col>
           </Row>
@@ -75,7 +75,7 @@ export default function Teams() {
             <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem', lineHeight: 1.7 }}>
               In the meantime, learn how the competition works!
             </p>
-            <Link to="/competition" className="btn-ghost" style={{ display: 'inline-block', textDecoration: 'none' }}>
+            <Link to="/competition" target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ display: 'inline-block', textDecoration: 'none' }}>
               Competition
             </Link>
           </Col>

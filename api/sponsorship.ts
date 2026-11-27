@@ -12,6 +12,7 @@ type VercelResponse = ServerResponse & {
 
 const RECIPIENT = '2k16srs@gmail.com';
 const MAX_BODY_BYTES = 8 * 1024;
+const EMOJI_PATTERN = new RegExp('\\p{RGI_Emoji}', 'v');
 const ALLOWED_INTERESTS = [
   'Financial sponsorship',
   'Products or services',
@@ -51,7 +52,21 @@ function isAllowedInterest(value: string): value is SponsorshipInquiry['interest
   return ALLOWED_INTERESTS.some((interest) => interest === value);
 }
 
-function validateInquiry(body: unknown): SponsorshipInquiry | undefined {
+function validatePhone(value: unknown): string | undefined {
+  if (typeof value !== 'string' || value.length > 40 || hasControlCharacters(value)) return undefined;
+
+  const phone = value.trim();
+  if (!phone) return '';
+
+  const digitCount = phone.replace(/[^0-9]/g, '').length;
+  if (digitCount < 7 || digitCount > 15) return undefined;
+
+  return /^\+?(?:[0-9]|\([0-9]+\))(?:[ .-]?(?:[0-9]|\([0-9]+\)))*$/.test(phone)
+    ? phone
+    : undefined;
+}
+
+function validateInquiry(body: unknown, phone: string): SponsorshipInquiry | undefined {
   if (!isRecord(body)) return undefined;
   const allowedFields = new Set(['name', 'organization', 'email', 'phone', 'interest', 'message', 'website']);
   if (Object.keys(body).some((key) => !allowedFields.has(key))) return undefined;
@@ -59,7 +74,6 @@ function validateInquiry(body: unknown): SponsorshipInquiry | undefined {
   const name = getString(body.name);
   const organization = getString(body.organization ?? '');
   const email = getString(body.email);
-  const phone = getString(body.phone ?? '');
   const interest = getString(body.interest);
   const message = getString(body.message);
   const website = getString(body.website ?? '');
@@ -68,7 +82,6 @@ function validateInquiry(body: unknown): SponsorshipInquiry | undefined {
     name === undefined ||
     organization === undefined ||
     !email ||
-    phone === undefined ||
     !interest ||
     !message ||
     website === undefined ||
@@ -77,14 +90,13 @@ function validateInquiry(body: unknown): SponsorshipInquiry | undefined {
     organization.length > 160 ||
     email.length > 254 ||
     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
-    phone.length > 40 ||
     !isAllowedInterest(interest) ||
     message.length > 4000
   ) {
     return undefined;
   }
 
-  const shortFields = [name, organization, email, phone, interest, website];
+  const shortFields = [name, organization, email, interest, website];
   if (shortFields.some((value) => hasControlCharacters(value)) || hasControlCharacters(message, true)) {
     return undefined;
   }
@@ -187,10 +199,21 @@ export default async function handler(request: VercelRequest, response: VercelRe
     return respondError(response, 413, 'The request is too large.');
   }
 
-  const inquiry = validateInquiry(request.body);
+  const phone = validatePhone(isRecord(request.body) ? request.body.phone ?? '' : '');
+  if (phone === undefined) {
+    return respondError(response, 422, 'Enter a phone number with 7 to 15 digits, such as (608) 555-0123, or leave Phone blank.');
+  }
+
+  const inquiry = validateInquiry(request.body, phone);
   if (!inquiry) return respondError(response, 400, 'Please check the inquiry fields and try again.');
   if (inquiry.website) return response.status(200).json({ message: 'Thanks for reaching out.' });
 
+  if ([inquiry.name, inquiry.organization, inquiry.email, inquiry.message].some(value => EMOJI_PATTERN.test(value))) {
+    return response.status(400).json({
+      code: 'emoji_not_allowed',
+      message: 'Remove emojis from your inquiry and try again.',
+    });
+  }
 
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.RESEND_FROM_EMAIL;

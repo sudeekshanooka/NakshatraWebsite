@@ -18,6 +18,7 @@ export default function Home() {
           loop
           muted
           playsInline
+          disablePictureInPicture
           preload="metadata"
           onError={() => setHasVideoError(true)}
           hidden={hasVideoError}

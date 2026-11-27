@@ -103,19 +103,22 @@ export default function Competition() {
             Nakshatra awards points that count toward teams&apos; placement in the
             National Championship. Points earned here help teams reach the top
             nine and qualify for Origins. Teams are scored using an ELO system.
+            {' '}To learn more about Origins, click on their logo below.
           </p>
-          <img
-            className="competition-origins-logo"
-            src={originsLogo}
-            alt="Origins Dance Championship logo"
-            loading="lazy"
-          />
+          <div className="d-flex justify-content-center mt-4">
+            <a className="competition-origins-link" href="https://originschampionship.com/" target="_blank" rel="noopener noreferrer">
+              <img src={originsLogo} alt="Origins Dance Championship website" loading="lazy" />
+            </a>
+          </div>
         </section>
 
         <section className="competition-section" aria-labelledby="winners-heading">
           <h2 id="winners-heading" className="competition-section-title">
-            Last Year&apos;s Winners
+            Nakshatra 2.0's Winners
           </h2>
+          <p id="winners-description" className="competition-section-description text-center">
+            Click on their photo to watch their performance on YouTube!
+          </p>
           <div className="competition-winners">
             {lastYearWinners.map(({ place, team, originsNote, image, performanceUrl }) => (
               <article className="competition-winner-card" key={team}>
@@ -146,12 +149,6 @@ export default function Competition() {
           </div>
         </section>
 
-        <section className="competition-order" aria-labelledby="show-order-heading">
-          <h2 id="show-order-heading" className="competition-section-title">
-            3.0 Show Order
-          </h2>
-          <p>TBD</p>
-        </section>
       </Container>
     </div>
   );
